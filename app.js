@@ -3,6 +3,8 @@ const multer = require("multer");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+const fileModel = require("./models/fileModel");
+
 const app = express();
 app.use(express.static("views"));
 app.set("view engine", "ejs");
