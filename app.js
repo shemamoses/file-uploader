@@ -37,7 +37,7 @@ app.post("/upload", upload.single("file"), async (req, res, next) => {
   await file.save();
 
   
-  res.send("image uploaded");
+  res.send("file uploaded");
 });
 
 module.exports = app;
