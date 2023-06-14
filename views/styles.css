@@ -1,0 +1,40 @@
+/* styles.css */
+@import url("https://www.mediafire.com/css/web/mediafire-icons.css");
+@import url("https://www.mediafire.com/css/web/mediafire-general.css");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+input[type="file"] {
+  margin-bottom: 10px;
+  font-family: "MediafireWeb", Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px;
+}
+
+button[type="submit"] {
+  padding: 15px 30px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "MediafireWeb", Arial, sans-serif;
+  font-size: 18px;
+}
+
+button[type="submit"]:hover {
+  background-color: #cc5500;
+}
