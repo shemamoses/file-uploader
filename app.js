@@ -29,13 +29,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/upload", upload.single("file"), async (req, res, next) => {
+  
   //saving path to mongodb
   const file = new fileModel({
     path: req.file.path,
   });
   await file.save();
 
-  next();
+  
   res.send("image uploaded");
 });
 
