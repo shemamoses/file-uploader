@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//uploading the file
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads"); // Destination folder for file uploads
@@ -27,7 +28,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/upload", upload.single("file"), (req, res,next) => {
+app.post("/upload", upload.single("file"), async (req, res, next) => {
+  //saving path to mongodb
+  const file = new fileModel({
+    path: req.file.path,
+  });
+  await file.save();
+
+  next();
   res.send("image uploaded");
 });
 
