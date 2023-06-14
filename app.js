@@ -12,12 +12,23 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads"); // Destination folder for file uploads
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname); // File naming convention
+  },
+});
+
+const upload = multer({ storage: storage });
+
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/upload", (req, res) => {
-  res.send("this is upload route");
+app.post("/upload", upload.single("file"), (req, res,next) => {
+  res.send("image uploaded");
 });
 
 module.exports = app;
